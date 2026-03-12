@@ -9,11 +9,19 @@ import ScrollAnimator from "../components/ScrollAnimator";
 export default function ShopContent() {
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const filters = [
-    { id: "all", label: "All" },
-    { id: "recent", label: "Recent Finds" },
-    { id: "curations", label: "Curations" },
-  ];
+  const filteredProducts = products.filter((p) => {
+    if (activeFilter === "all") return true;
+    if (activeFilter === "recent") return true;
+    if (activeFilter === "curations") return true;
+    if (activeFilter === "saanjh") return p.collection === "saanjh";
+    if (activeFilter === "samagra") return p.collection === "samagra";
+    return true;
+  });
+
+  const isCurationActive =
+    activeFilter === "curations" ||
+    activeFilter === "saanjh" ||
+    activeFilter === "samagra";
 
   return (
     <>
@@ -31,26 +39,35 @@ export default function ShopContent() {
       </section>
 
       <div className="shop-filters">
-        {filters.map((filter) => (
-          <button
-            key={filter.id}
-            className={`filter-tab ${activeFilter === filter.id ? "active" : ""}`}
-            onClick={() => setActiveFilter(filter.id)}
-          >
-            {filter.label}
-          </button>
-        ))}
-        {activeFilter === "curations" && (
+        <button
+          className={`filter-tab ${activeFilter === "all" ? "active" : ""}`}
+          onClick={() => setActiveFilter("all")}
+        >
+          All
+        </button>
+        <button
+          className={`filter-tab ${activeFilter === "recent" ? "active" : ""}`}
+          onClick={() => setActiveFilter("recent")}
+        >
+          Recent Finds
+        </button>
+        <button
+          className={`filter-tab ${isCurationActive ? "active" : ""}`}
+          onClick={() => setActiveFilter("curations")}
+        >
+          Curations
+        </button>
+        {isCurationActive && (
           <>
             <button
-              className="filter-tab filter-sub"
-              onClick={() => setActiveFilter("curations")}
+              className={`filter-tab filter-sub ${activeFilter === "saanjh" ? "active" : ""}`}
+              onClick={() => setActiveFilter("saanjh")}
             >
               Saanjh
             </button>
             <button
-              className="filter-tab filter-sub"
-              onClick={() => setActiveFilter("curations")}
+              className={`filter-tab filter-sub ${activeFilter === "samagra" ? "active" : ""}`}
+              onClick={() => setActiveFilter("samagra")}
             >
               Samagra
             </button>
@@ -59,7 +76,7 @@ export default function ShopContent() {
       </div>
 
       <div className="shop-grid">
-        {products.map((product, i) => (
+        {filteredProducts.map((product, i) => (
           <Link
             key={product.slug}
             href={`/shop/${product.slug}`}
@@ -71,7 +88,8 @@ export default function ShopContent() {
               alt={product.name}
               width={800}
               height={600}
-              quality={90}
+              quality={85}
+              sizes="(max-width: 810px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
             <div className="product-card-overlay">
               <h3>{product.name}</h3>

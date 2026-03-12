@@ -17,6 +17,11 @@ export async function generateMetadata({ params }) {
   return {
     title: `${product.name} — Sunduuk`,
     description: product.tagline,
+    openGraph: {
+      title: `${product.name} — Sunduuk`,
+      description: product.tagline,
+      images: [{ url: product.heroImage, width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -36,6 +41,12 @@ export default async function ProductPage({ params }) {
     ? products.find((p) => p.slug === product.bestPaired.slug)
     : null;
 
+  const allGalleryImages = [
+    product.mainImage,
+    product.secondaryImage,
+    ...product.galleryImages,
+  ];
+
   return (
     <div className="product-detail">
       <ScrollAnimator />
@@ -45,10 +56,11 @@ export default async function ProductPage({ params }) {
         <Image
           src={product.heroImage}
           alt={product.name}
-          width={1600}
-          height={900}
-          quality={90}
+          width={2400}
+          height={1792}
+          quality={85}
           priority
+          sizes="100vw"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
         <div className="product-hero-name">
@@ -69,16 +81,20 @@ export default async function ProductPage({ params }) {
         </a>
       </div>
 
-      {/* Secondary Image - Full Width */}
-      <div className="product-secondary-fullbleed" data-animate="0">
-        <Image
-          src={product.secondaryImage}
-          alt={`${product.name} detail`}
-          width={1600}
-          height={600}
-          quality={90}
-          style={{ width: "100%", height: "auto" }}
-        />
+      {/* Image Gallery */}
+      <div className="product-gallery" data-animate="0">
+        {allGalleryImages.map((src, i) => (
+          <div className="product-gallery-item" key={i}>
+            <Image
+              src={src}
+              alt={`${product.name} — view ${i + 1}`}
+              width={1200}
+              height={900}
+              quality={85}
+              sizes="(max-width: 810px) 100vw, 50vw"
+            />
+          </div>
+        ))}
       </div>
 
       {/* Product Story */}
@@ -174,7 +190,8 @@ export default async function ProductPage({ params }) {
                   alt={rp.name}
                   width={800}
                   height={600}
-                  quality={90}
+                  quality={85}
+                  sizes="(max-width: 810px) 100vw, 50vw"
                 />
                 <div className="product-card-overlay">
                   <h3>{rp.name}</h3>

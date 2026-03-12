@@ -25,17 +25,17 @@ export default function Home() {
     {
       title: "The Last Oar",
       slug: "thelastoar",
-      src: "https://framerusercontent.com/images/IVivzN6Ol0LRAxxwFavYSLNWYDI.png",
+      src: "https://framerusercontent.com/images/VqCA4d4WxFboQ7Dz8fbXPbu5dic.png",
     },
     {
       title: "Virasat in Brass",
       slug: "virasatinbrass",
-      src: "https://framerusercontent.com/images/VqCA4d4WxFboQ7Dz8fbXPbu5dic.png",
+      src: "https://framerusercontent.com/images/UXCjuijIvcozwf372xAODbL5TE.png",
     },
     {
       title: "The Bullcart Archive",
       slug: "thebullcartarchive",
-      src: "https://framerusercontent.com/images/UXCjuijIvcozwf372xAODbL5TE.png",
+      src: "https://framerusercontent.com/images/IVivzN6Ol0LRAxxwFavYSLNWYDI.png",
     },
   ];
 
@@ -85,7 +85,7 @@ export default function Home() {
             muted
             autoPlay
             playsInline
-            preload="auto"
+            preload="metadata"
           />
           <div className="home-hero-overlay" />
         </div>
@@ -116,8 +116,9 @@ export default function Home() {
                 alt={item.title}
                 width={1200}
                 height={900}
-                quality={90}
+                quality={85}
                 priority={i === 0}
+                sizes="(max-width: 810px) 100vw, 33vw"
               />
               <div className="featured-card-overlay">
                 <h3>{item.title}</h3>
@@ -152,7 +153,8 @@ export default function Home() {
             alt="Sunduuk heritage craftsmanship"
             width={2400}
             height={1792}
-            quality={90}
+            quality={85}
+            sizes="(max-width: 810px) 100vw, 1200px"
           />
         </div>
       </section>
@@ -177,7 +179,8 @@ export default function Home() {
                 alt={`${item.title} Collection`}
                 width={1136}
                 height={944}
-                quality={90}
+                quality={85}
+                sizes="(max-width: 810px) 100vw, 50vw"
               />
               <div className="collection-info">
                 <h3>{item.title}</h3>
