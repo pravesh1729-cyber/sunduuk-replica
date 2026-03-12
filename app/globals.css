@@ -74,6 +74,10 @@ input {
 }
 
 .main-content {
+  padding-top: 0;
+}
+
+.main-content:has(.shop-hero, .about-hero, .support-hero, .policy-page, .curation-hero) {
   padding-top: 72px;
 }
 
@@ -296,7 +300,185 @@ input {
 }
 
 /* ============================================
-   HERO
+   HOME CINEMATIC HERO
+   ============================================ */
+.home-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.home-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.home-hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.home-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 40px 100px;
+  max-width: 860px;
+  color: #fff;
+}
+
+.home-hero-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 28px;
+}
+
+.home-hero-content h1 {
+  font-size: clamp(36px, 5.5vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1.06;
+  margin-bottom: 40px;
+  text-wrap: balance;
+}
+
+.home-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.01em;
+  padding: 14px 36px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+  transition: all 0.4s var(--ease-out-expo);
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.home-hero-cta:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+.home-hero-cta svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.home-hero-cta:hover svg {
+  transform: translateX(5px);
+}
+
+/* ============================================
+   STATEMENT IMAGE SECTION
+   ============================================ */
+.statement-section {
+  padding: 0 40px;
+  max-width: var(--max-width);
+  margin: 0 auto 40px;
+}
+
+.statement-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 16/10;
+}
+
+.statement-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out-expo);
+}
+
+.statement-section:hover .statement-image img {
+  transform: scale(1.02);
+}
+
+/* ============================================
+   CURATION PAGES
+   ============================================ */
+.curation-hero {
+  padding: 0 40px;
+  max-width: var(--max-width);
+  margin: 40px auto 0;
+}
+
+.curation-hero-image {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 21/9;
+}
+
+.curation-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.curation-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+
+.curation-hero-overlay h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.curation-hero-overlay p {
+  font-size: 16px;
+  opacity: 0.85;
+  letter-spacing: -0.01em;
+}
+
+.curation-grid-section {
+  padding: 60px 0 100px;
+}
+
+.curation-grid-section .shop-grid {
+  padding-bottom: 80px;
+}
+
+/* ============================================
+   HERO (legacy — kept for other pages if needed)
    ============================================ */
 .hero {
   padding: 200px 40px 120px;

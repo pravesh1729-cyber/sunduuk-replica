@@ -76,18 +76,29 @@ export default function Home() {
     <>
       <ScrollAnimator />
 
-      {/* Hero */}
-      <section className="hero">
-        <p className="hero-label" data-animate="0">
-          Timeless Craft
-        </p>
-        <h1 data-animate="100">
-          Each piece we uncover has lived a life before it found you
-        </h1>
-        <Link href="/shop" className="hero-cta" data-animate="200">
-          View all finds
-          <ArrowIcon />
-        </Link>
+      {/* Cinematic Full-Bleed Hero */}
+      <section className="home-hero">
+        <div className="home-hero-media">
+          <video
+            src="https://framerusercontent.com/assets/nZiBLl79JrYZ9Uwg3nBt0vTzrA.mp4"
+            loop
+            muted
+            autoPlay
+            playsInline
+            preload="auto"
+          />
+          <div className="home-hero-overlay" />
+        </div>
+        <div className="home-hero-content">
+          <p className="home-hero-label" data-animate="0">Timeless Craft</p>
+          <h1 data-animate="200">
+            Each piece we uncover has lived a life before it found you
+          </h1>
+          <Link href="/shop" className="home-hero-cta" data-animate="400">
+            View all finds
+            <ArrowIcon />
+          </Link>
+        </div>
       </section>
 
       {/* Featured */}
@@ -120,21 +131,6 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* Video */}
-      <section className="video-section" data-animate="0">
-        <div className="video-container">
-          <video
-            src="https://framerusercontent.com/assets/nZiBLl79JrYZ9Uwg3nBt0vTzrA.mp4"
-            loop
-            muted
-            autoPlay
-            playsInline
-            preload="none"
-          />
-          <div className="video-gradient" />
-        </div>
-      </section>
-
       {/* Values */}
       <section className="values-section">
         <div className="values-grid">
@@ -145,6 +141,19 @@ export default function Home() {
               <p>{item.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Full-width statement image */}
+      <section className="statement-section" data-animate="0">
+        <div className="statement-image">
+          <Image
+            src="https://framerusercontent.com/images/1KzMAgKZmCezGI6685JSUysnsAE.png"
+            alt="Sunduuk heritage craftsmanship"
+            width={2400}
+            height={1792}
+            quality={90}
+          />
         </div>
       </section>
 
