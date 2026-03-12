@@ -72,7 +72,7 @@ export default async function ProductPage({ params }) {
       <div className="product-info-section" data-animate="0">
         <p className="product-tagline">{product.tagline}</p>
         <a
-          href="https://wa.me/c/919902253378"
+          href="https://wa.me/919902253378"
           target="_blank"
           rel="noopener noreferrer"
           className="product-enquire"

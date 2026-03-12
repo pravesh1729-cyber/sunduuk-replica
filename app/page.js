@@ -197,7 +197,7 @@ export default function Home() {
           Objects rooted in Indian craft, heritage, and lived history
         </h2>
         <a
-          href="https://wa.me/c/919902253378"
+          href="https://wa.me/919902253378"
           target="_blank"
           rel="noopener noreferrer"
           className="cta-banner-btn"

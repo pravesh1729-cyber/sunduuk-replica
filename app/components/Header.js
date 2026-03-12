@@ -71,7 +71,7 @@ export default function Header() {
             </svg>
           </button>
           <a
-            href="https://wa.me/c/919902253378"
+            href="https://wa.me/919902253378"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-enquire header-enquire"
@@ -104,7 +104,7 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="https://wa.me/c/919902253378"
+              href="https://wa.me/919902253378"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-enquire mobile-enquire"

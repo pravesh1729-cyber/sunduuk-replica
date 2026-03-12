@@ -102,7 +102,7 @@ const jsonLd = {
         postalCode: '560038',
         addressCountry: 'IN',
       },
-      sameAs: ['https://wa.me/c/919902253378'],
+      sameAs: ['https://wa.me/919902253378'],
     },
     {
       '@type': 'WebSite',
