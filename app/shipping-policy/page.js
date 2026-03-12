@@ -8,63 +8,94 @@ export const metadata = {
 export default function ShippingPolicyPage() {
   return (
     <div className="policy-page">
-      <ScrollAnimator>
-        <h1>Shipping Policy</h1>
-        <p className="policy-version">Version 1.0 | Last Updated: 03/02/2026</p>
-      </ScrollAnimator>
+      <ScrollAnimator />
 
-      <ScrollAnimator>
-        <div className="policy-content">
-          <h2>1. Shipping Coverage</h2>
-          <p>
-            We offer shipping across India and internationally. Delivery is available to most locations worldwide. For remote or restricted areas, additional time or charges may apply.
-          </p>
+      <h1 data-animate="0">Shipping Policy</h1>
+      <p className="policy-version" data-animate="50">
+        Version 1.0 | Last Updated: 03/02/2026
+      </p>
 
-          <h2>2. Delivery Timelines</h2>
-          <ul>
-            <li>Domestic orders (within India): Typically delivered within 4-6 weeks from the date of order confirmation.</li>
-            <li>International orders: May require an additional 7-8 business days beyond the standard delivery timeline.</li>
-          </ul>
-          <p>
-            Please note that delivery timelines are estimates and may vary depending on the product, location, and external factors such as weather or customs clearance.
-          </p>
+      <p className="policy-intro" data-animate="100">
+        This Shipping Policy explains how SUNDUUK ships Products within India
+        and internationally.
+      </p>
 
-          <h2>3. Shipping Charges</h2>
-          <p>
-            Shipping charges are calculated separately based on the delivery location, product dimensions, and weight. The exact shipping cost will be communicated at the time of order confirmation via WhatsApp.
-          </p>
+      <div className="policy-content" data-animate="0">
+        <h2>1) Shipping coverage</h2>
+        <p>We ship across India.</p>
+        <p>
+          We also support international shipping for selected Products, subject
+          to feasibility based on product size, fragility, and destination.
+        </p>
 
-          <h2>4. Order Tracking</h2>
-          <p>
-            Once your order is shipped, we will share tracking details with you via WhatsApp. You can use the provided tracking link or number to monitor your delivery status in real time.
-          </p>
+        <h2>2) Logistics partners</h2>
+        <p>
+          We deliver via third-party logistics and delivery partners. The
+          partner may vary by destination and handling requirements.
+        </p>
 
-          <h2>5. Packaging</h2>
-          <p>
-            All products are carefully packaged to ensure safe delivery. Due to the nature of our handcrafted products, we take extra care in packaging to minimize any risk of damage during transit.
-          </p>
+        <h2>3) Dispatch and delivery timelines</h2>
+        <p>
+          Dispatch and delivery timelines vary depending on the Product,
+          packaging needs, destination, and logistics partner schedules.
+        </p>
+        <p>
+          For international shipments, customs clearance may affect delivery
+          time.
+        </p>
+        <p>
+          The estimated dispatch and delivery timeline will be confirmed over
+          WhatsApp or email during order confirmation.
+        </p>
 
-          <h2>6. Customs and Duties (International Orders)</h2>
-          <p>
-            For international shipments, customs duties, taxes, and other import charges may apply. These charges are the responsibility of the buyer and are not included in the product price or shipping charges.
-          </p>
+        <h2>4) Shipping and packing charges</h2>
+        <p>
+          Shipping, packing, and handling charges (if applicable) will be
+          communicated during order confirmation based on the Product and
+          destination.
+        </p>
 
-          <h2>7. Delivery Issues</h2>
-          <p>
-            If your order is delayed, damaged, or lost during transit, please contact us immediately at help@sunduuk.com or via WhatsApp. We will work with the shipping partner to resolve the issue as quickly as possible.
-          </p>
+        <h2>5) International customs and duties</h2>
+        <p>
+          For international deliveries, customs duties, import taxes, clearance
+          fees, and local levies (if any) are typically payable by the customer
+          unless confirmed otherwise in writing.
+        </p>
 
-          <h2>8. Undeliverable Packages</h2>
-          <p>
-            If a package is returned to us due to an incorrect address, refused delivery, or inability to deliver, we will contact you to arrange redelivery. Additional shipping charges may apply for redelivery.
-          </p>
+        <h2>6) Delivery access and receiving</h2>
+        <p>
+          Please ensure adequate access for large items (doorway width, lift
+          capacity, staircase turns, building entry permissions).
+        </p>
+        <p>Inspect the outer packaging at delivery.</p>
+        <p>
+          Do not discard the packaging until the Product has been fully
+          inspected.
+        </p>
 
-          <h2>9. Contact Us</h2>
-          <p>
-            For any shipping-related queries, please reach out to us at help@sunduuk.com or call us at +91 70221 40225.
-          </p>
-        </div>
-      </ScrollAnimator>
+        <h2>7) Transit damage</h2>
+        <p>
+          If an item arrives damaged, follow the process in our Return and
+          Refund Policy. Claims require an unboxing video and must be reported
+          within the stated timeline.
+        </p>
+
+        <h2>8) Support</h2>
+        <p>For shipping support:</p>
+        <p>
+          <a href="mailto:help@sunduuk.com">help@sunduuk.com</a>
+        </p>
+        <p>
+          WhatsApp:{" "}
+          <a
+            href="https://wa.me/message/ZH7U2D3F7TIWM1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            whatsapp.sunduuk.com
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

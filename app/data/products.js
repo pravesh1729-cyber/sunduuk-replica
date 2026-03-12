@@ -13,6 +13,7 @@ export const products = [
     mainImage: "https://framerusercontent.com/images/AnepYultCquZMdMJNR2rk6JFj7Q.png",
     heroImage: "https://framerusercontent.com/images/sycu0dP8jJsZwvQIIj18w5YWBA.png",
     secondaryImage: "https://framerusercontent.com/images/tm4iP1UjYsURt6pPeYfM7MqrM.png",
+    galleryImages: ["https://framerusercontent.com/images/UCxOquJUZqTdkq8G64ihEMRoqGg.png"],
     related: ["thecamelsrest", "virasatinbrass"]
   },
   {
@@ -28,6 +29,7 @@ export const products = [
     mainImage: "https://framerusercontent.com/images/wux4Mz6jykc543sbVJvI8ttV2DE.png",
     heroImage: "https://framerusercontent.com/images/3c5VAK0bJiIs9IzZvJ0KKyZqpM.png",
     secondaryImage: "https://framerusercontent.com/images/qB32IUGVIFQgIR7NmoIOiZhdW9E.png",
+    galleryImages: [],
     related: ["thelastoar", "virasatinbrass"]
   },
   {
@@ -44,6 +46,10 @@ export const products = [
     mainImage: "https://framerusercontent.com/images/SoKzjprgiJXGSjxJ38CGYAsErw.png",
     heroImage: "https://framerusercontent.com/images/WOTO4hlgR2yKEq0zlB3mCE.png",
     secondaryImage: "https://framerusercontent.com/images/uO25kCiiJh2sIrX9Py04uctbpa0.png",
+    galleryImages: [
+      "https://framerusercontent.com/images/QaTgrxKTElI2orszd9nfsu2E.png",
+      "https://framerusercontent.com/images/KTdlu1pYmhqE56fAzTcjvG8DT0o.png"
+    ],
     related: ["thebullcartarchive", "thecamelsrest"]
   },
   {
@@ -58,6 +64,7 @@ export const products = [
     mainImage: "https://framerusercontent.com/images/Dt79QtHYkycmNhYKhlf8yUS3Eic.png",
     heroImage: "https://framerusercontent.com/images/HCYQRRBGo929X2M2TaxhpLgZaTo.png",
     secondaryImage: "https://framerusercontent.com/images/SSdaNxg8B1JFDMib7KZqk3BABxw.png",
+    galleryImages: [],
     related: ["thecamelsrest", "thebullcartarchive"]
   },
   {
@@ -73,6 +80,7 @@ export const products = [
     mainImage: "https://framerusercontent.com/images/1ub7Xcjf8lliZ4QnJZCsFjpGVAQ.png",
     heroImage: "https://framerusercontent.com/images/17VXyGBa7M1gHEklj3xuZzvtRJw.png",
     secondaryImage: "https://framerusercontent.com/images/JbErOcNnktcSEWMf8tAQV6ZFVpA.png",
+    galleryImages: [],
     related: ["thecamelsrest", "virasatinbrass"]
   }
 ];

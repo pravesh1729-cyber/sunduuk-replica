@@ -1,33 +1,29 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
-export default function ScrollAnimator({ children, className = "", delay = 0 }) {
-  const ref = useRef(null);
-
+export default function ScrollAnimator() {
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const elements = document.querySelectorAll("[data-animate]");
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            el.classList.add("animate-in");
-          }, delay);
-          observer.unobserve(el);
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const delay = entry.target.dataset.animate || 0;
+            setTimeout(() => {
+              entry.target.classList.add("is-visible");
+            }, Number(delay));
+            observer.unobserve(entry.target);
+          }
+        });
       },
-      { threshold: 0.1 }
+      { threshold: 0.08, rootMargin: "0px 0px -60px 0px" }
     );
 
-    observer.observe(el);
+    elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [delay]);
+  }, []);
 
-  return (
-    <div ref={ref} className={`scroll-animate ${className}`}>
-      {children}
-    </div>
-  );
+  return null;
 }

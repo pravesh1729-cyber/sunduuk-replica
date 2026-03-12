@@ -74,109 +74,125 @@ export default function Home() {
 
   return (
     <>
+      <ScrollAnimator />
+
       {/* Hero */}
       <section className="hero">
-        <ScrollAnimator>
-          <p className="hero-label">Timeless Craft</p>
-        </ScrollAnimator>
-        <ScrollAnimator delay={100}>
-          <h1>Each piece we uncover has lived a life before it found you</h1>
-        </ScrollAnimator>
-        <ScrollAnimator delay={200}>
-          <Link href="/shop" className="hero-cta">
-            View all finds
-            <ArrowIcon />
-          </Link>
-        </ScrollAnimator>
+        <p className="hero-label" data-animate="0">
+          Timeless Craft
+        </p>
+        <h1 data-animate="100">
+          Each piece we uncover has lived a life before it found you
+        </h1>
+        <Link href="/shop" className="hero-cta" data-animate="200">
+          View all finds
+          <ArrowIcon />
+        </Link>
       </section>
 
       {/* Featured */}
       <section className="featured-row">
         <div className="featured-grid">
           {featuredItems.map((item, i) => (
-            <ScrollAnimator key={item.slug} delay={i * 100}>
-              <Link href={`/shop/${item.slug}`} className="featured-card">
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  width={1200}
-                  height={900}
-                  quality={90}
-                  priority={i === 0}
-                />
-                <div className="featured-card-overlay">
-                  <h3>{item.title}</h3>
-                </div>
-              </Link>
-            </ScrollAnimator>
+            <Link
+              key={item.slug}
+              href={`/shop/${item.slug}`}
+              className="featured-card"
+              data-animate={i * 100}
+            >
+              <Image
+                src={item.src}
+                alt={item.title}
+                width={1200}
+                height={900}
+                quality={90}
+                priority={i === 0}
+              />
+              <div className="featured-card-overlay">
+                <h3>{item.title}</h3>
+              </div>
+            </Link>
           ))}
         </div>
-        <ScrollAnimator>
-          <Link href="/shop" className="view-all-link">
-            View all finds
-            <ArrowIcon />
-          </Link>
-        </ScrollAnimator>
+        <Link href="/shop" className="view-all-link" data-animate="0">
+          View all finds
+          <ArrowIcon />
+        </Link>
+      </section>
+
+      {/* Video */}
+      <section className="video-section" data-animate="0">
+        <div className="video-container">
+          <video
+            src="https://framerusercontent.com/assets/nZiBLl79JrYZ9Uwg3nBt0vTzrA.mp4"
+            loop
+            muted
+            autoPlay
+            playsInline
+            preload="none"
+          />
+          <div className="video-gradient" />
+        </div>
       </section>
 
       {/* Values */}
       <section className="values-section">
         <div className="values-grid">
           {values.map((item, i) => (
-            <ScrollAnimator key={item.num} delay={i * 100}>
-              <div className="value-item">
-                <p className="value-number">{item.num}</p>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
-            </ScrollAnimator>
+            <div className="value-item" key={item.num} data-animate={i * 100}>
+              <p className="value-number">{item.num}</p>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Collections */}
       <section className="collections-section">
-        <ScrollAnimator>
-          <div className="collections-header">
-            <p className="collections-label">Collection of distinctive pieces</p>
-          </div>
-        </ScrollAnimator>
+        <div className="collections-header" data-animate="0">
+          <p className="collections-label">
+            Collection of distinctive pieces
+          </p>
+        </div>
         <div className="collections-grid">
           {collections.map((item, i) => (
-            <ScrollAnimator key={item.title} delay={i * 100}>
-              <Link href={item.href} className="collection-card">
-                <Image
-                  src={item.src}
-                  alt={`${item.title} Collection`}
-                  width={1136}
-                  height={944}
-                  quality={90}
-                />
-                <div className="collection-info">
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                </div>
-              </Link>
-            </ScrollAnimator>
+            <Link
+              key={item.title}
+              href={item.href}
+              className="collection-card"
+              data-animate={i * 100}
+            >
+              <Image
+                src={item.src}
+                alt={`${item.title} Collection`}
+                width={1136}
+                height={944}
+                quality={90}
+              />
+              <div className="collection-info">
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
 
       {/* CTA Banner */}
       <section className="cta-banner">
-        <ScrollAnimator>
-          <h2>Objects rooted in Indian craft, heritage, and lived history</h2>
-        </ScrollAnimator>
-        <ScrollAnimator delay={100}>
-          <a
-            href="https://wa.me/message/ZH7U2D3F7TIWM1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cta-banner-btn"
-          >
-            Enquire now
-          </a>
-        </ScrollAnimator>
+        <h2 data-animate="0">
+          Objects rooted in Indian craft, heritage, and lived history
+        </h2>
+        <a
+          href="https://wa.me/message/ZH7U2D3F7TIWM1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-banner-btn"
+          data-animate="100"
+        >
+          Enquire now
+        </a>
       </section>
     </>
   );

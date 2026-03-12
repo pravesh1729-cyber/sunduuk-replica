@@ -32,131 +32,157 @@ export default async function ProductPage({ params }) {
     .map((s) => products.find((p) => p.slug === s))
     .filter(Boolean);
 
+  const bestPairedProduct = product.bestPaired
+    ? products.find((p) => p.slug === product.bestPaired.slug)
+    : null;
+
   return (
     <div className="product-detail">
-      {/* Hero Section */}
-      <div className="product-hero-section">
-        <ScrollAnimator>
-          <div className="product-hero-image">
-            <Image
-              src={product.heroImage}
-              alt={product.name}
-              width={800}
-              height={1000}
-              quality={90}
-              priority
-            />
-          </div>
-        </ScrollAnimator>
-        <ScrollAnimator delay={150}>
-          <div className="product-info">
-            <h1>{product.name}</h1>
-            <p className="product-tagline">{product.tagline}</p>
-            <a
-              href="https://wa.me/message/ZH7U2D3F7TIWM1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="product-enquire"
-            >
-              Enquire now
-            </a>
-          </div>
-        </ScrollAnimator>
+      <ScrollAnimator />
+
+      {/* Full-bleed Hero Image */}
+      <div className="product-hero-fullbleed" data-animate="0">
+        <Image
+          src={product.heroImage}
+          alt={product.name}
+          width={1600}
+          height={900}
+          quality={90}
+          priority
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+        <div className="product-hero-name">
+          <h1>{product.name}</h1>
+        </div>
       </div>
 
-      {/* Secondary Image */}
-      <ScrollAnimator>
-        <div className="product-secondary-image">
-          <Image
-            src={product.secondaryImage}
-            alt={`${product.name} detail`}
-            width={1200}
-            height={500}
-            quality={90}
-            style={{ width: "100%", height: "auto" }}
-          />
-        </div>
-      </ScrollAnimator>
+      {/* Product Info Section */}
+      <div className="product-info-section" data-animate="0">
+        <p className="product-tagline">{product.tagline}</p>
+        <a
+          href="https://wa.me/message/ZH7U2D3F7TIWM1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="product-enquire"
+        >
+          Enquire now
+        </a>
+      </div>
+
+      {/* Secondary Image - Full Width */}
+      <div className="product-secondary-fullbleed" data-animate="0">
+        <Image
+          src={product.secondaryImage}
+          alt={`${product.name} detail`}
+          width={1600}
+          height={600}
+          quality={90}
+          style={{ width: "100%", height: "auto" }}
+        />
+      </div>
 
       {/* Product Story */}
-      <ScrollAnimator>
-        <div className="product-story">
-          <h2>Product Story</h2>
-          {product.story.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
+      <div className="product-story" data-animate="0">
+        <h2>Product Story</h2>
+        {product.story.map((paragraph, i) => (
+          <p key={i}>{paragraph}</p>
+        ))}
+      </div>
+
+      {/* Best Paired With */}
+      {product.bestPaired && (
+        <div className="product-best-paired" data-animate="0">
+          <div className="best-paired-card">
+            <h3>Best Paired With</h3>
+            <p>
+              <strong>{product.bestPaired.name}</strong> &mdash;{" "}
+              {product.bestPaired.note}
+            </p>
+            {bestPairedProduct && (
+              <Link href={`/shop/${product.bestPaired.slug}`}>
+                View {product.bestPaired.name}
+              </Link>
+            )}
+          </div>
         </div>
-      </ScrollAnimator>
+      )}
 
       {/* Specifications */}
-      <ScrollAnimator>
-        <div className="product-specs">
-          <h2>Specifications</h2>
-          <table className="specs-table">
-            <tbody>
-              <tr>
-                <td>Length</td>
-                <td>{product.specs.length}</td>
-              </tr>
-              <tr>
-                <td>Breadth</td>
-                <td>{product.specs.breadth}</td>
-              </tr>
-              <tr>
-                <td>Height</td>
-                <td>{product.specs.height}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </ScrollAnimator>
+      <div className="product-specs" data-animate="0">
+        <h2>Specifications</h2>
+        <table className="specs-table">
+          <tbody>
+            <tr>
+              <td>Length</td>
+              <td>{product.specs.length}</td>
+            </tr>
+            <tr>
+              <td>Breadth</td>
+              <td>{product.specs.breadth}</td>
+            </tr>
+            <tr>
+              <td>Height</td>
+              <td>{product.specs.height}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      {/* Delivery Information */}
-      <ScrollAnimator>
-        <div className="product-delivery">
-          <h2>Delivery Information</h2>
+      {/* Delivery + Payment Cards */}
+      <div className="product-info-cards" data-animate="0">
+        <div className="info-card">
+          <h3>Delivery</h3>
           <ul>
-            <li>Orders are typically delivered within 4–6 weeks from the date of order confirmation.</li>
-            <li>Deliveries to locations outside India may require an additional 7–8 business days.</li>
-            <li>Shipping is available worldwide. Delivery charges are calculated separately based on the delivery location.</li>
+            <li>
+              Orders are typically delivered within 4–6 weeks from the date of
+              order confirmation.
+            </li>
+            <li>
+              Deliveries to locations outside India may require an additional
+              7–8 business days.
+            </li>
+            <li>
+              Shipping is available worldwide. Delivery charges are calculated
+              separately based on the delivery location.
+            </li>
           </ul>
         </div>
-      </ScrollAnimator>
-
-      {/* Payment Method */}
-      <ScrollAnimator>
-        <div className="product-payment">
-          <h2>Payment Method</h2>
+        <div className="info-card">
+          <h3>Payment</h3>
           <ul>
             <li>We accept payments via Cards and UPI.</li>
-            <li>Cash on Delivery (COD) is not available for this product.</li>
+            <li>
+              Cash on Delivery (COD) is not available for this product.
+            </li>
           </ul>
         </div>
-      </ScrollAnimator>
+      </div>
 
       {/* Related Products */}
       {relatedProducts.length > 0 && (
-        <ScrollAnimator>
-          <div className="product-related">
-            <h2>You may also like</h2>
-            <div className="related-grid">
-              {relatedProducts.map((rp) => (
-                <Link key={rp.slug} href={`/shop/${rp.slug}`} className="product-card">
-                  <Image
-                    src={rp.mainImage}
-                    alt={rp.name}
-                    width={800}
-                    height={600}
-                    quality={90}
-                  />
-                  <div className="product-card-overlay">
-                    <h3>{rp.name}</h3>
-                  </div>
-                </Link>
-              ))}
-            </div>
+        <div className="product-related" data-animate="0">
+          <h2>You may also like</h2>
+          <div className="related-grid">
+            {relatedProducts.map((rp) => (
+              <Link
+                key={rp.slug}
+                href={`/shop/${rp.slug}`}
+                className="product-card"
+              >
+                <Image
+                  src={rp.mainImage}
+                  alt={rp.name}
+                  width={800}
+                  height={600}
+                  quality={90}
+                />
+                <div className="product-card-overlay">
+                  <h3>{rp.name}</h3>
+                </div>
+              </Link>
+            ))}
           </div>
-        </ScrollAnimator>
+        </div>
       )}
     </div>
   );
