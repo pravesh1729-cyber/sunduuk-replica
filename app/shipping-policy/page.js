@@ -88,7 +88,7 @@ export default function ShippingPolicyPage() {
         <p>
           WhatsApp:{" "}
           <a
-            href="https://wa.me/message/ZH7U2D3F7TIWM1"
+            href="https://wa.me/c/919902253378"
             target="_blank"
             rel="noopener noreferrer"
           >
